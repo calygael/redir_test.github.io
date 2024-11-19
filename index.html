@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redirect</title>
+    <script>
+        const botAgents = [
+            "Twitterbot",
+            "Discordbot",
+            "facebookexternalhit",
+            "LinkedInBot",
+            "TelegramBot",
+            "bitlybot"
+        ];
+
+        // Vérifier le User-Agent
+        const userAgent = navigator.userAgent;
+        const isBot = botAgents.some(bot => userAgent.includes(bot));
+
+        if (isBot) {
+            // Rediriger les bots vers une URL spécifique
+            window.location.href = "https://www.geoguessr.com/";
+        } else {
+            // Rediriger les utilisateurs légitimes
+            window.location.href = "https://www.youtube.com/";
+        }
+    </script>
+</head>
+<body>
+<noscript>
+    Vous allez être redirigé. Veuillez activer JavaScript si ce n'est pas le cas.
+</noscript>
+</body>
+</html>
