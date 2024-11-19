@@ -4,6 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Redirect</title>
+
+    <!-- Open Graph Metadata -->
+    <meta property="og:title" content="Exemple de redirection">
+    <meta property="og:description" content="Description utilisée pour les previews des bots sociaux.">
+    <meta property="og:image" content="URL_DE_L_IMAGE_POUR_PREVIEW">
+    <meta property="og:url" content="https://calygael.github.io/redir_test.github.io/">
+    <meta property="og:type" content="website">
+
     <script>
         const botAgents = [
             "Twitterbot",
@@ -19,8 +27,7 @@
         const isBot = botAgents.some(bot => userAgent.includes(bot));
 
         if (isBot) {
-            // Rediriger les bots vers une URL spécifique
-            window.location.href = "https://www.geoguessr.com/";
+            // Les bots sociaux ignorent le JS, ils liront les balises Open Graph
         } else {
             // Rediriger les utilisateurs légitimes
             window.location.href = "https://www.youtube.com/";
