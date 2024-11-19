@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Redirect</title>
+    <title>Redirection</title>
 
     <!-- Open Graph Metadata -->
     <meta property="og:title" content="Exemple de redirection">
@@ -12,6 +12,7 @@
     <meta property="og:url" content="https://calygael.github.io/redir_test.github.io/">
     <meta property="og:type" content="website">
 
+    <!-- Script de redirection pour les utilisateurs humains -->
     <script>
         const botAgents = [
             "Twitterbot",
@@ -22,21 +23,19 @@
             "bitlybot"
         ];
 
-        // Vérifier le User-Agent
         const userAgent = navigator.userAgent;
         const isBot = botAgents.some(bot => userAgent.includes(bot));
 
-        if (isBot) {
-            // Les bots sociaux ignorent le JS, ils liront les balises Open Graph
-        } else {
-            // Rediriger les utilisateurs légitimes
+        if (!isBot) {
+            // Rediriger les utilisateurs humains
             window.location.href = "https://www.youtube.com/";
         }
+        // Les bots sociaux ne feront pas cette redirection car ils n'exécutent pas de JS
     </script>
 </head>
 <body>
-<noscript>
-    Vous allez être redirigé. Veuillez activer JavaScript si ce n'est pas le cas.
-</noscript>
+<!-- Contenu lisible uniquement par les bots -->
+<h1>Préview pour les bots sociaux</h1>
+<p>Cette page est utilisée pour générer des previews sur les plateformes comme Telegram, Discord, et Twitter.</p>
 </body>
 </html>
